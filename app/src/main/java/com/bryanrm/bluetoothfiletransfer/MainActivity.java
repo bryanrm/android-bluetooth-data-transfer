@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+// Created by Bryan R. Martinez on 12/27/2016
 public class MainActivity extends AppCompatActivity {
     public Uri uri;
 

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Bluetooth File Transfer</string>
+
+    <!-- Main Activity -->
+    <string name="button_enable_bt">Enable Bluetooth</string>
+    <string name="button_select_file">Select File</string>
+    <string name="button_send">Send File</string>
+
+    <string name="toast_bt_enabled">Bluetooth enabled!</string>
+    <string name="toast_error_enable_bt">Bluetooth must be enabled</string>
+    <string name="toast_error_select_file">Select file to send</string>
+
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_error_message">Device does not support Bluetooth</string>
+
+
+
+</resources>

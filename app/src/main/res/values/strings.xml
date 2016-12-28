@@ -7,7 +7,7 @@
     <string name="button_send">Send File</string>
 
     <string name="toast_bt_enabled">Bluetooth enabled!</string>
-    <string name="toast_file_selected">You have selected: </string>
+    <string name="toast_file_selected">File: </string>
     <string name="toast_error_enable_bt">Bluetooth must be enabled</string>
     <string name="toast_error_select_file">Select file to send</string>
     <string name="toast_error_select_file_02">Please select a file</string>

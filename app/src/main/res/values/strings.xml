@@ -11,7 +11,7 @@
     <string name="toast_error_enable_bt">Bluetooth must be enabled</string>
     <string name="toast_error_select_file">Select file to send</string>
     <string name="toast_error_select_file_02">Please select a file</string>
-    <string name="toast_success_send">File sent successfully!</string>
+    <string name="toast_success_send">File data successfully!</string>
     <string name="toast_error_socket">Unable to create socket</string>
     <string name="toast_error_connect">Unable to connect to device</string>
     <string name="toast_error_bytes">Unable to read file</string>

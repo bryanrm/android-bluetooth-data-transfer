@@ -4,7 +4,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.bryanrm.bluetoothfiletransfer"
+        applicationId "com.bryanrm.bluetoothdatatransfer"
         minSdkVersion 19
         targetSdkVersion 24
         versionCode 1

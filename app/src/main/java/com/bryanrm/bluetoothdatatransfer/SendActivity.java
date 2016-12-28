@@ -1,4 +1,4 @@
-package com.bryanrm.bluetoothfiletransfer;
+package com.bryanrm.bluetoothdatatransfer;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;

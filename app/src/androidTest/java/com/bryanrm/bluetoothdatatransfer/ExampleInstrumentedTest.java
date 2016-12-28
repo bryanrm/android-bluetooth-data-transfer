@@ -1,4 +1,4 @@
-package com.bryanrm.bluetoothfiletransfer;
+package com.bryanrm.bluetoothdatatransfer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.bryanrm.bluetoothfiletransfer", appContext.getPackageName());
+        assertEquals("com.bryanrm.bluetoothdatatransfer", appContext.getPackageName());
     }
 }

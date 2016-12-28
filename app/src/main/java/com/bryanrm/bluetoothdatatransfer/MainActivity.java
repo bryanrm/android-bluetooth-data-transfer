@@ -1,4 +1,4 @@
-package com.bryanrm.bluetoothfiletransfer;
+package com.bryanrm.bluetoothdatatransfer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public void selectFile(View view) {
         Intent fileChooser = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         fileChooser.addCategory(Intent.CATEGORY_OPENABLE);
-        fileChooser.setType("*/*");
+        fileChooser.setType("text/*");
         startActivityForResult(fileChooser, Constants.REQUEST_READ_CODE);
     }
 

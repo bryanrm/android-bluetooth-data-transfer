@@ -1,4 +1,4 @@
-package com.bryanrm.bluetoothfiletransfer;
+package com.bryanrm.bluetoothdatatransfer;
 
 // Created by Bryan R. Martinez on 12/27/2016
 public class Constants {
@@ -11,5 +11,5 @@ public class Constants {
     public static final int ERROR_BYTES = 23;
     public static final int ERROR_OUTPUT_STREAM = 24;
 
-    public static final String UUID = "00001105-0000-1000-8000-00805F9B34FB";
+    public static final String UUID = "04c6093b-0000-1000-8000-00805f9b34fb";
 }

@@ -1,4 +1,4 @@
-package com.bryanrm.bluetoothfiletransfer;
+package com.bryanrm.bluetoothdatatransfer;
 
 import org.junit.Test;
 

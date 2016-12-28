@@ -1,4 +1,4 @@
-package com.bryanrm.bluetoothfiletransfer;
+package com.bryanrm.bluetoothdatatransfer;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -75,9 +75,8 @@ public class FileTransfer extends AsyncTask<Void, Void, Integer> {
         byte[] buffer = new byte[bufferSize];
 
         int len;
-        while ((len = inputStream.read(buffer)) != -1) {
+        while ((len = inputStream.read(buffer)) != -1)
             byteBuffer.write(buffer, 0, len);
-        }
         return byteBuffer.toByteArray();
     }
 

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 // Created by Bryan R. Martinez on 12/27/2016
 public class MainActivity extends AppCompatActivity {
-    public Uri uri;
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendFile(View view) {
         Intent sendFileIntent = new Intent(this, SendActivity.class);
         if (uri != null) {
-            sendFileIntent.putExtra("URI", uri);
+            sendFileIntent.setData(uri);
             startActivity(sendFileIntent);
         } else { createToast(getString(R.string.toast_error_select_file)); }
     }
@@ -53,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 createToast(getString(R.string.toast_bt_enabled));
             else { createToast(getString(R.string.toast_error_enable_bt)); }
         if (requestCode == Constants.REQUEST_READ_CODE && resultCode == Activity.RESULT_OK)
-            if (data != null) { uri = data.getData(); }
+            if (data != null) {
+                uri = data.getData();
+                createToast(getString(R.string.toast_file_selected)+uri.getPath());
+            }
             else { createToast(getString(R.string.toast_error_select_file_02)); }
     }
 

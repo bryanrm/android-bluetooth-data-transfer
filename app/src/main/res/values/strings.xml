@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bluetooth File Transfer</string>
+    <string name="app_name">Bluetooth Data Transfer</string>
 
     <string name="button_enable_bt">Enable Bluetooth</string>
     <string name="button_select_file">Select File</string>

@@ -14,13 +14,13 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 // Created by Bryan R. Martinez on 12/28/2016
-public class FileTransfer extends AsyncTask<Void, Void, Integer> {
+public class DataTransfer extends AsyncTask<Void, Void, Integer> {
     private InputStream inputStream;
     private BluetoothDevice device;
     private Context context;
     private BluetoothSocket socket;
 
-    public FileTransfer(InputStream inputStream, BluetoothDevice device, Context context) {
+    public DataTransfer(InputStream inputStream, BluetoothDevice device, Context context) {
         this.inputStream = inputStream;
         this.device = device;
         this.context = context;

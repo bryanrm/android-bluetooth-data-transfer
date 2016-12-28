@@ -28,10 +28,8 @@ public class SendActivity extends AppCompatActivity {
     private void populateListView() {
         arrayList.clear();
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        for (BluetoothDevice device : bluetoothAdapter.getBondedDevices()) {
+        for (BluetoothDevice device : bluetoothAdapter.getBondedDevices())
             arrayList.add(device.getName() + System.lineSeparator() + device.getAddress());
-            System.out.println(device.getName() + System.lineSeparator() + device.getAddress());
-        }
 
         ListView listView = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> arrayAdapter

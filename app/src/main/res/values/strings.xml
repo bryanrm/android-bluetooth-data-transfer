@@ -3,7 +3,7 @@
 
     <string name="button_enable_bt">Enable Bluetooth</string>
     <string name="button_select_file">Select File</string>
-    <string name="button_send">Send File</string>
+    <string name="button_send">Send Data</string>
     <string name="button_discover_devices">Discover Nearby Devices</string>
 
     <string name="toast_bt_enabled">Bluetooth enabled!</string>

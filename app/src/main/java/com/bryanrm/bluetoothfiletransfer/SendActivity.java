@@ -46,8 +46,9 @@ public class SendActivity extends AppCompatActivity {
 
                 if (deviceInfo.length == 2) {
                     BluetoothDevice device = bluetoothAdapter.getRemoteDevice(deviceInfo[1]);
-                    try { new FileTransfer(getContentResolver().openInputStream(uri), device)
-                                .execute();
+                    try {
+                        new FileTransfer(getContentResolver().openInputStream(uri),
+                                device, getApplicationContext()).execute();
                     } catch (FileNotFoundException e) { }
                 }
             }

@@ -3,7 +3,9 @@ package com.bryanrm.bluetoothfiletransfer;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -16,13 +18,13 @@ public class FileTransfer extends AsyncTask<Void, Void, Integer> {
     private InputStream inputStream;
     private OutputStream outputStream;
     private BluetoothDevice device;
+    private Context context;
     private BluetoothSocket socket;
-    private StringBuilder stringBuilder;
 
-    public FileTransfer(InputStream inputStream, BluetoothDevice device) {
+    public FileTransfer(InputStream inputStream, BluetoothDevice device, Context context) {
         this.inputStream = inputStream;
         this.device = device;
-        stringBuilder = new StringBuilder();
+        this.context = context;
     }
 
     @Override
@@ -32,12 +34,13 @@ public class FileTransfer extends AsyncTask<Void, Void, Integer> {
             try {
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                 socket.connect();
-
                 outputStream = socket.getOutputStream();
                 try {
                     byte[] data = getBytes();
                     if (outputStream != null) {
                         outputStream.write(data);
+                        try { outputStream.close(); }
+                        catch (IOException e) { }
                         return Constants.SUCCESS_SEND;
                     } else { return Constants.ERROR_OUTPUT_STREAM; }
                 } catch (IOException e) { return Constants.ERROR_BYTES; }
@@ -49,8 +52,22 @@ public class FileTransfer extends AsyncTask<Void, Void, Integer> {
     protected void onPostExecute(Integer result) {
         switch (result) {
             case Constants.SUCCESS_SEND:
-                
+                createToast(context.getString(R.string.toast_success_send));
+                break;
+            case Constants.ERROR_OUTPUT_STREAM:
+                createToast(context.getString(R.string.toast_error_output_stream));
+                break;
+            case Constants.ERROR_BYTES:
+                createToast(context.getString(R.string.toast_error_bytes));
+                break;
+            case Constants.ERROR_CONNECT:
+                createToast(context.getString(R.string.toast_error_connect));
+                break;
+            case Constants.ERROR_SOCKET:
+                createToast(context.getString(R.string.toast_error_socket));
+                break;
         }
+        cancelSocket();
     }
 
     private byte[] getBytes() throws IOException {
@@ -63,5 +80,17 @@ public class FileTransfer extends AsyncTask<Void, Void, Integer> {
             byteBuffer.write(buffer, 0, len);
         }
         return byteBuffer.toByteArray();
+    }
+
+    private void cancelSocket() {
+        if (socket != null) {
+            try {
+                socket.close();
+            } catch (IOException e) { }
+        }
+    }
+
+    private void createToast(String msg) {
+        Toast.makeText(context.getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 }

@@ -9,6 +9,7 @@
     <string name="toast_bt_enabled">Bluetooth enabled!</string>
     <string name="toast_error_enable_bt">Bluetooth must be enabled</string>
     <string name="toast_error_select_file">Select file to send</string>
+    <string name="toast_error_select_file_02">Please select a file</string>
 
     <string name="dialog_error_title">Error</string>
     <string name="dialog_error_message">Device does not support Bluetooth</string>

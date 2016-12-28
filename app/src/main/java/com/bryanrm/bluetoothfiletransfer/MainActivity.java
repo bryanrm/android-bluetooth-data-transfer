@@ -48,12 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constants.REQUEST_ENABLE_BT && resultCode == Activity.RESULT_OK)
-            createToast(getString(R.string.toast_bt_enabled));
-        else { createToast(getString(R.string.toast_error_enable_bt)); }
+        if (requestCode == Constants.REQUEST_ENABLE_BT)
+            if (resultCode == Activity.RESULT_OK)
+                createToast(getString(R.string.toast_bt_enabled));
+            else { createToast(getString(R.string.toast_error_enable_bt)); }
         if (requestCode == Constants.REQUEST_READ_CODE && resultCode == Activity.RESULT_OK)
             if (data != null) { uri = data.getData(); }
+            else { createToast(getString(R.string.toast_error_select_file_02)); }
     }
 
     private void createToast(String msg) {

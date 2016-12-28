@@ -5,9 +5,12 @@ import android.bluetooth.BluetoothDevice;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 // Created by Bryan R. Martinez on 12/27/2016
@@ -27,14 +30,28 @@ public class SendActivity extends AppCompatActivity {
 
     private void populateListView() {
         arrayList.clear();
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         for (BluetoothDevice device : bluetoothAdapter.getBondedDevices())
             arrayList.add(device.getName() + System.lineSeparator() + device.getAddress());
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        final ListView listView = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> arrayAdapter
                 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object listItem = listView.getItemAtPosition(position);
+                String[] deviceInfo = listItem.toString().split(System.lineSeparator());
+
+                if (deviceInfo.length == 2) {
+                    BluetoothDevice device = bluetoothAdapter.getRemoteDevice(deviceInfo[1]);
+                    try { new FileTransfer(getContentResolver().openInputStream(uri), device)
+                                .execute();
+                    } catch (FileNotFoundException e) { }
+                }
+            }
+        });
     }
 
 }

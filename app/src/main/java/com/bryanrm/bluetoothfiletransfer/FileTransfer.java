@@ -16,7 +16,6 @@ import java.util.UUID;
 // Created by Bryan R. Martinez on 12/28/2016
 public class FileTransfer extends AsyncTask<Void, Void, Integer> {
     private InputStream inputStream;
-    private OutputStream outputStream;
     private BluetoothDevice device;
     private Context context;
     private BluetoothSocket socket;
@@ -34,7 +33,7 @@ public class FileTransfer extends AsyncTask<Void, Void, Integer> {
             try {
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                 socket.connect();
-                outputStream = socket.getOutputStream();
+                OutputStream outputStream = socket.getOutputStream();
                 try {
                     byte[] data = getBytes();
                     if (outputStream != null) {

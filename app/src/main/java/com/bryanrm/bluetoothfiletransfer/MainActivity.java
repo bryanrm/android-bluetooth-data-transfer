@@ -55,9 +55,8 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == Constants.REQUEST_READ_CODE && resultCode == Activity.RESULT_OK)
             if (data != null) {
                 uri = data.getData();
-                createToast(getString(R.string.toast_file_selected)+uri.getPath());
-            }
-            else { createToast(getString(R.string.toast_error_select_file_02)); }
+                createToast(getString(R.string.toast_file_selected) + uri.getPath());
+            } else { createToast(getString(R.string.toast_error_select_file_02)); }
     }
 
     private void createToast(String msg) {
